@@ -11,9 +11,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 
     // Sidebar toggle functionality for mobile
-    sidebarBtn.addEventListener("click", function () {
-        elementToggleFunc(sidebar);
-    });
+    if (sidebarBtn) {
+        sidebarBtn.addEventListener("click", function () {
+            elementToggleFunc(sidebar);
+        });
+    }
 
     // Testimonials variables
     const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
@@ -45,18 +47,23 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Add click event to modal close button and overlay
-    modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-    overlay.addEventListener("click", testimonialsModalFunc);
+    if (modalCloseBtn) {
+        modalCloseBtn.addEventListener("click", testimonialsModalFunc);
+    }
+    if (overlay) {
+        overlay.addEventListener("click", testimonialsModalFunc);
+    }
 
     // Custom select variables
     const select = document.querySelector("[data-select]");
     const selectItems = document.querySelectorAll("[data-select-item]");
-    const selectValue = document.querySelector("[data-select-value]"); // Corrected typo
-    const filterBtn = document.querySelectorAll("[data-filter-btn]");
+    const selectValue = document.querySelector("[data-select-value]");
 
-    select.addEventListener("click", function () {
-        elementToggleFunc(this);
-    });
+    if (select) {
+        select.addEventListener("click", function () {
+            elementToggleFunc(this);
+        });
+    }
 
     // Add event in all select items
     selectItems.forEach(item => {
@@ -70,6 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Filter variables and function
     const filterItems = document.querySelectorAll("[data-filter-item]");
+    const filterBtn = document.querySelectorAll("[data-filter-btn]");
 
     const filterFunc = function (selectedValue) {
         filterItems.forEach(item => {
